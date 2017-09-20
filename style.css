@@ -11,6 +11,18 @@ a {
     color: var(--bg-e);
 }
 
+h1 {
+    font-size: 3em;
+    text-align: center;
+    transition: all 0.4s;
+}
+
+h2 {
+    font-size: 2em;
+    text-align: center;
+    transition: all 0.4s;
+}
+
 body {
     background: var(--bg-s);
     background: -webkit-linear-gradient(var(--bg-s), var(--bg-e));
@@ -23,6 +35,13 @@ body {
     flex-direction: column;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    transition: all 0.4s;
+}
+
+@media screen and (max-width:700px) {
+    body {
+        font-size: 12px;
+    }
 }
 
 #content-wrapper {
@@ -42,10 +61,20 @@ header {
 }
 
 .heading {
-    width: 100%;
-    font-size: 4em;
+    font-size: 5em;
+    font-weight: 800;
     line-height: 1.5em;
     text-align: center;
+    transition: all 0.5s;
+    z-index: 1000;
+    animation-name: rainbow;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    -webkit-text-stroke: 2px black;
+}
+
+.heading:hover {
+    color: var(--bg-e);
 }
 
 menu {
@@ -71,4 +100,50 @@ menu>a:hover {
     color: rgba(255, 255, 255, 1);
 }
 
-.menu-item {}
+.content {
+    background: var(--bg-c);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    height: 50vh;
+    padding: 2vh 2vw;
+}
+
+.content>h1 {
+    font-weight: 100;
+}
+
+.content>h1:hover {
+    color: var(--bg-s)
+}
+
+@keyframes rainbow {
+    0% {
+        color: red;
+    }
+    20% {
+        color: orange;
+    }
+    32% {
+        color: yellow;
+    }
+    48% {
+        color: green;
+    }
+    64% {
+        color: blue;
+    }
+    80% {
+        color: indigo;
+    }
+    90% {
+        color: violet;
+    }
+    100% {
+        color: red;
+    }
+}
+
+.content>h2 {
+    font-weight: 800;
+    font-style: italic;
+}
