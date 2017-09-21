@@ -3,12 +3,26 @@
     padding: 0;
     --bg-s: rgba(36, 255, 0, 1);
     --bg-e: rgba(255, 130, 0, 1);
-    --bg-c: rgba(255, 255, 255, 0.7);
+    --bg-e-op: rgba(255, 130, 0, 0.5);
+    --bg-c: rgba(255, 255, 255, 0.6);
+    --c-link: rgba(51, 0, 255, 1);
+    --c-link-hover: rgba(255, 0, 0, 1);
+    --c-link-visited: rgba(0, 117, 255, 1);
 }
 
 a {
     text-decoration: none;
-    color: var(--bg-e);
+    font-style: italic;
+    color: var(--c-link);
+    transition: all 0.3s;
+}
+
+a:hover {
+    color: var(--c-link-hover);
+}
+
+a:visited {
+    color: var(--c-link-visited);
 }
 
 h1 {
@@ -21,6 +35,19 @@ h2 {
     font-size: 2em;
     text-align: center;
     transition: all 0.4s;
+}
+
+ul, ol, li {
+    margin-left: 1vw;
+    padding-left: 1vw;
+}
+
+img {
+    transition: all 0.4s;
+}
+
+.half-width {
+    width: 50%;
 }
 
 body {
@@ -38,12 +65,6 @@ body {
     transition: all 0.4s;
 }
 
-@media screen and (max-width:700px) {
-    body {
-        font-size: 12px;
-    }
-}
-
 #content-wrapper {
     width: 100vw;
     max-width: 1000px;
@@ -53,6 +74,7 @@ header {
     background: var(--bg-c);
     margin-top: 2vh;
     margin-bottom: 2vh;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 .heading-wrapper {
@@ -70,7 +92,9 @@ header {
     animation-name: rainbow;
     animation-duration: 4s;
     animation-iteration-count: infinite;
-    -webkit-text-stroke: 2px black;
+    animation-timing-function: linear;
+    -webkit-text-stroke: 3px black;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .heading:hover {
@@ -84,13 +108,14 @@ menu {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 menu>a {
     font-size: 1.5em;
     padding-left: 2em;
     padding-right: 2em;
-    line-height: 2em;
+    /*line-height: 2em;*/
     color: var(--bg-e);
     transition: all 0.4s;
 }
@@ -100,16 +125,22 @@ menu>a:hover {
     color: rgba(255, 255, 255, 1);
 }
 
+menu>a.active {
+    background: var(--bg-e-op);
+    color: rgba(255, 255, 255, 1);
+}
+
 .content {
     background: var(--bg-c);
     margin-top: 2vh;
     margin-bottom: 2vh;
-    height: 50vh;
     padding: 2vh 2vw;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
 }
 
 .content>h1 {
     font-weight: 100;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .content>h1:hover {
@@ -119,31 +150,91 @@ menu>a:hover {
 @keyframes rainbow {
     0% {
         color: red;
+        letter-spacing: 1vw;
     }
-    20% {
+    14% {
         color: orange;
+        letter-spacing: 1.5vw;
     }
-    32% {
+    28% {
         color: yellow;
+        letter-spacing: 1vw;
     }
-    48% {
+    42% {
         color: green;
+        letter-spacing: 1.5vw;
     }
-    64% {
+    56% {
         color: blue;
+        letter-spacing: 1vw;
     }
-    80% {
+    70% {
         color: indigo;
+        letter-spacing: 1.5vw;
     }
     90% {
         color: violet;
+        letter-spacing: 1vw;
     }
     100% {
         color: red;
+        letter-spacing: 1vw;
     }
 }
 
 .content>h2 {
     font-weight: 800;
     font-style: italic;
+}
+
+.content-full-width {
+    width: 100%;
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content-full-width.left {
+    align-items: flex-start;
+}
+
+.content-full-width.center {
+    align-items: center;
+}
+
+.content-full-width.right {
+    align-items: flex-end;
+}
+
+.content-full-width>img:hover {
+    width: 100%;
+}
+
+footer {
+    background: var(--bg-c);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2vh 2vw;
+    font-size: 1em;
+}
+
+img.small {
+    height: 2em;
+}
+
+@media screen and (max-width:700px) {
+    body {
+        font-size: 12px;
+    }
+    ul, ol {
+        font-size: 14px;
+    }
+    #content-wrapper {
+        width: 95vw;
+    }
 }
